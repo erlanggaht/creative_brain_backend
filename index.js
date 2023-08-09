@@ -1,4 +1,5 @@
 import express from 'express'
+import 'dotenv/config'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import guestbook from './src/models/guestbook.js'
@@ -14,7 +15,8 @@ app.use(bodyParser.json())
 app.use(router)
 
 guestbook.connect((err) => {
-    if(!err) console.log('database connected')
+    if(!err) return console.log('database connected')
+    console.log('database not connected')
    })
    
 
